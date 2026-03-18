@@ -1,0 +1,210 @@
+/* components/Navbar/Navbar.module.css */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  z-index: var(--z-sticky);
+  transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(var(--color-bg, #faf8f4), 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .navbar.scrolled {
+  background: rgba(13, 11, 8, 0.92);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 var(--space-xl);
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+/* ——— Logo ——— */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logoIcon {
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 6px rgba(var(--color-primary-rgb), 0.5));
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
+}
+
+.logoText em {
+  font-style: italic;
+  color: var(--color-primary);
+  font-weight: 400;
+}
+
+/* ——— Nav Links ——— */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition-base);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-primary);
+  transition: width var(--transition-base);
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+  width: 100%;
+}
+
+.navLink.active {
+  color: var(--color-primary);
+}
+
+/* ——— Actions ——— */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.themeBtn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-base);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.themeBtn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: rotate(20deg);
+}
+
+.adminBtn {
+  font-size: 0.72rem !important;
+  padding: 8px 18px !important;
+}
+
+.menuBtn {
+  display: none;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  transition: all var(--transition-base);
+}
+
+.menuBtn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ——— Mobile Menu ——— */
+.mobileMenu {
+  position: fixed;
+  top: var(--navbar-height);
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  z-index: calc(var(--z-sticky) - 1);
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobileLink {
+  display: block;
+  padding: 14px 0;
+  font-size: 1.4rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-base), padding-left var(--transition-base);
+}
+
+.mobileLink:hover,
+.mobileLink.mobileActive {
+  color: var(--color-primary);
+  padding-left: 8px;
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 1024px) {
+  .navLinks { gap: var(--space-lg); }
+}
+
+@media (max-width: 768px) {
+  .inner { padding: 0 var(--space-md); }
+  .navLinks { display: none; }
+  .adminBtn { display: none; }
+  .menuBtn { display: flex; }
+}

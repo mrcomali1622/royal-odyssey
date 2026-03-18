@@ -1,0 +1,89 @@
+/* components/Common/LoadingSkeleton.module.css */
+
+.tourCard {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.img {
+  height: 220px;
+  width: 100%;
+}
+
+.albumImg {
+  height: 200px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.line {
+  height: 14px;
+  border-radius: var(--radius-sm);
+}
+
+.xshort { width: 30%; }
+.short  { width: 45%; }
+.mid    { width: 70%; }
+.full   { width: 100%; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.price {
+  width: 90px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+}
+
+.btn {
+  width: 100px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+}
+
+/* Review Skeleton */
+.review {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.avatarRow {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+  margin-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Album Skeleton */
+.album {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
